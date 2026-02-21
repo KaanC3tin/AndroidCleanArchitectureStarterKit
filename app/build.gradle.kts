@@ -12,11 +12,11 @@ val SERVER_URL: String = project.findProperty("SERVER_URL") as String
 val BASE_URL: String = project.findProperty("BASE_URL") as String
 
 android {
-    namespace = "com.karegraf.carapp"
+    namespace = "com.karegraf.androidarchitecturestarterkit"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.karegraf.carapp"
+        applicationId = "com.karegraf.androidarchitecturestarterkit"
         minSdk = 23
         targetSdk = 35
         versionCode = 1
@@ -91,4 +91,5 @@ dependencies {
     ksp(libs.hilt.compiler)
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("io.coil-kt.coil3:coil-compose:3.2.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 }

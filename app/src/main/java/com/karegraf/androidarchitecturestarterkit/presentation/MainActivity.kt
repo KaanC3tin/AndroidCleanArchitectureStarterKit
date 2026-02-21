@@ -1,4 +1,4 @@
-package com.karegraf.androidarchitecturestarterkit.prensentation
+package com.karegraf.androidarchitecturestarterkit.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.karegraf.androidarchitecturestarterkit.prensentation.ui.theme.AndroidArchitectureStarterKitTheme
+import com.karegraf.androidarchitecturestarterkit.presentation.ui.theme.AndroidArchitectureStarterKitTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

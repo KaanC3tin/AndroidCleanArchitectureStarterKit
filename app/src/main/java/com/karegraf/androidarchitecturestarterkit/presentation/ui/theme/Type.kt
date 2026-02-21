@@ -1,4 +1,4 @@
-package com.karegraf.androidarchitecturestarterkit.prensentation.ui.theme
+package com.karegraf.androidarchitecturestarterkit.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

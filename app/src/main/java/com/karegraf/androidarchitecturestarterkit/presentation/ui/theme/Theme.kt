@@ -1,4 +1,4 @@
-package com.karegraf.androidarchitecturestarterkit.prensentation.ui.theme
+package com.karegraf.androidarchitecturestarterkit.presentation.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
