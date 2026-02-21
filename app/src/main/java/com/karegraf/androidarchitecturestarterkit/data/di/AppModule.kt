@@ -1,5 +1,6 @@
 package com.karegraf.androidarchitecturestarterkit.data.di
 
+import android.content.Context
 import android.content.SharedPreferences
 import com.karegraf.androidarchitecturestarterkit.data.local.TokenManager
 import com.karegraf.androidarchitecturestarterkit.data.remote.API
@@ -8,9 +9,11 @@ import com.karegraf.androidarchitecturestarterkit.data.remote.TokenManagerImp
 import com.karegraf.androidarchitecturestarterkit.data.remote.Interceptor.AuthInterceptor
 import com.karegraf.androidarchitecturestarterkit.domain.repository.MyRepository
 import com.karegraf.androidarchitecturestarterkit.BuildConfig
+import com.karegraf.androidarchitecturestarterkit.data.local.SessionManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -56,5 +59,14 @@ object AppModule {
     fun provideTokenManager(sharedPreferences: SharedPreferences): TokenManager {
         return TokenManagerImp(sharedPreferences)
     }
+
+
+    @Provides
+    @Singleton
+    fun provideSharedPreferences(@ApplicationContext context: Context): SharedPreferences {
+        return context.getSharedPreferences("car_app", Context.MODE_PRIVATE)
+    }
+
+
 
 }
