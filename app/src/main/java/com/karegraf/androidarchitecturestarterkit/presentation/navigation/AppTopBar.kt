@@ -1,4 +1,4 @@
-package com.karegraf.evrakapp.presentation.navigation
+package com.karegraf.androidarchitecturestarterkit.presentation.navigation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,11 +18,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.karegraf.androidarchitecturestarterkit.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppTopBar() {
+fun AppTopBar(navController: NavController) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
 
     TopAppBar(
@@ -34,14 +35,14 @@ fun AppTopBar() {
         title = {
             Image(
                 painterResource(R.drawable.ic_launcher_background),
-                contentDescription = "Nurglass Logo",
+                contentDescription = "Logo",
                 modifier = Modifier
                     .fillMaxWidth()
                     .size(200.dp, 200.dp)
             )
         },
         navigationIcon = {
-            IconButton(onClick = { /* TODO: handle navigation */ }) {
+            IconButton(onClick = { navController.popBackStack() }) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = "Geri"
