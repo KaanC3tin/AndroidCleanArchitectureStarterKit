@@ -17,7 +17,6 @@ import androidx.navigation.compose.rememberNavController
 import com.karegraf.androidarchitecturestarterkit.presentation.AppViewModel
 import com.karegraf.androidarchitecturestarterkit.presentation.Screen
 import com.karegraf.androidarchitecturestarterkit.presentation.auth.login.views.LoginScreen
-import com.karegraf.androidarchitecturestarterkit.presentation.permission.PermissionMenuScreen
 import com.karegraf.evrakapp.presentation.navigation.AppBottomBar
 
 @Composable
@@ -72,19 +71,19 @@ fun AppNavGraph(
                 LoginScreen(navController = navController)
             }
             composable(route = Screen.permission.route) {
-                PermissionMenuScreen(navController = navController)
+//                PermissionMenuScreen(navController = navController)
             }
             composable(route = Screen.cameraPermission.route) {
                 // Kamera izni ekranı
-                com.karegraf.androidarchitecturestarterkit.presentation.permission.CameraPermissionScreen()
+//                com.karegraf.androidarchitecturestarterkit.presentation.permission.views.CameraPermissionScreen()
             }
             composable(route = Screen.locationPermission.route) {
                 // Konum izni ekranı
-                com.karegraf.androidarchitecturestarterkit.presentation.permission.LocationPermissionScreen()
+//                com.karegraf.androidarchitecturestarterkit.presentation.permission.views.LocationPermissionScreen()
             }
             composable(route = Screen.galleryPermission.route) {
                 // Galeri izni ekranı
-                com.karegraf.androidarchitecturestarterkit.presentation.permission.GalleryPermissionScreen()
+//                com.karegraf.androidarchitecturestarterkit.presentation.permission.views.GalleryPermissionScreen()
             }
         }
     }

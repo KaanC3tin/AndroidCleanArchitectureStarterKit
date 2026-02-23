@@ -1,14 +1,7 @@
 package com.karegraf.androidarchitecturestarterkit.presentation.permission
 
-import android.Manifest
-import android.icu.util.ICUUncheckedIOException
 import androidx.activity.ComponentActivity
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.runtime.currentComposer
-import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityCompat.shouldShowRequestPermissionRationale
-import androidx.fragment.app.Fragment
 import com.karegraf.androidarchitecturestarterkit.domain.model.PermissionStatus
 
 class PermissionHandler(

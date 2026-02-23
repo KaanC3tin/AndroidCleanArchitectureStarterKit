@@ -1,4 +1,4 @@
-package com.karegraf.androidarchitecturestarterkit.presentation.permission
+package com.karegraf.androidarchitecturestarterkit.presentation.permission.views
 
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -54,9 +54,12 @@ class PermissionViewModel @Inject constructor(
                 // Unknown permission key: don't change any state. (Previously returned a value mistakenly.)
             }
         }
-
-
     }
+        fun onGalleryPermissionResult(isGranted: Boolean) {
+            _galleryStatus.value =
+                if (isGranted) PermissionStatus.Granted
+                else PermissionStatus.Denied
+        }
 
 
     fun checkCamera() {

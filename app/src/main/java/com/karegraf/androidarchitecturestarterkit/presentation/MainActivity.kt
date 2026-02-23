@@ -8,7 +8,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.karegraf.androidarchitecturestarterkit.presentation.navigation.AppNavGraph
+import com.karegraf.androidarchitecturestarterkit.presentation.common.components.CarouselExample_MultiBrowse
+import com.karegraf.androidarchitecturestarterkit.presentation.permission.views.CameraPermissionScreen
 import com.karegraf.androidarchitecturestarterkit.presentation.ui.theme.AndroidArchitectureStarterKitTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,12 +22,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             // Navigation graph ile başlat, startDestination olarak izin menüsü
             AndroidArchitectureStarterKitTheme {
-                AppNavGraph(startDestinationOverride = Screen.permission.route)
+//                AppNavGraph(startDestinationOverride = Screen.permission.route)
+                CarouselExample_MultiBrowse()
             }
         }
     }
 }
-
 
 
 @Preview(showBackground = true)
