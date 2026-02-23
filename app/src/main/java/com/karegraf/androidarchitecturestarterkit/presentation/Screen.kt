@@ -86,6 +86,41 @@ sealed class Screen(
         contentDescription = "Sikca Karsilasilan Sorunlar",
     )
 
+    object permission : Screen(
+        route = "permission_screen",
+        icon = Icons.Filled.Warning,
+        label = "Izinler",
+        contentDescription = "Izinler",
+    )
+
+    /**
+     * Kamera izni ekranı için route
+     */
+    object cameraPermission : Screen(
+        route = "camera_permission_screen",
+        icon = Icons.Filled.Warning,
+        label = "Kamera İzni",
+        contentDescription = "Kamera izni"
+    )
+    /**
+     * Konum izni ekranı için route
+     */
+    object locationPermission : Screen(
+        route = "location_permission_screen",
+        icon = Icons.Filled.Warning,
+        label = "Konum İzni",
+        contentDescription = "Konum izni"
+    )
+    /**
+     * Galeri izni ekranı için route
+     */
+    object galleryPermission : Screen(
+        route = "gallery_permission_screen",
+        icon = Icons.Filled.Warning,
+        label = "Galeri İzni",
+        contentDescription = "Galeri izni"
+    )
+
 
     companion object {
         fun getBottomBarScreens(): List<Screen> {

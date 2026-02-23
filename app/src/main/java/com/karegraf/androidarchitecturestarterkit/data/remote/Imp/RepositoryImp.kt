@@ -1,5 +1,6 @@
-package com.karegraf.androidarchitecturestarterkit.data.remote
+package com.karegraf.androidarchitecturestarterkit.data.remote.Imp
 
+import com.karegraf.androidarchitecturestarterkit.data.remote.API
 import com.karegraf.androidarchitecturestarterkit.data.remote.dto.LoginResponseDto
 import com.karegraf.androidarchitecturestarterkit.data.remote.dto.toLoginModel
 import com.karegraf.androidarchitecturestarterkit.domain.model.LoginModel

@@ -1,4 +1,5 @@
 import com.android.build.gradle.internal.cxx.configure.createNativeBuildSystemVariantConfig
+import org.gradle.kotlin.dsl.implementation
 
 plugins {
     alias(libs.plugins.android.application)

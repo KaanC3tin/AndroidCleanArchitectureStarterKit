@@ -1,4 +1,4 @@
-package com.karegraf.androidarchitecturestarterkit.data.remote
+package com.karegraf.androidarchitecturestarterkit.data.remote.Imp
 
 import android.content.SharedPreferences
 import androidx.core.content.edit

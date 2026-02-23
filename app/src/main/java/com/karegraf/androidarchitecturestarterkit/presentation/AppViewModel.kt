@@ -26,7 +26,7 @@ open class AppViewModel @Inject constructor(
 ) : ViewModel() {
 
 
-    var startDestination by mutableStateOf(Screen.login.route)
+    var startDestination by mutableStateOf(Screen.permission.route)
         private set
 
     // hasToken artık StateFlow üzerinden sağlanıyor ve UI recomposition'ı tetikliyor

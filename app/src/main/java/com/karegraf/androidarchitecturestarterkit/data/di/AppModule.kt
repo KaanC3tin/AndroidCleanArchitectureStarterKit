@@ -4,12 +4,11 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.karegraf.androidarchitecturestarterkit.data.local.TokenManager
 import com.karegraf.androidarchitecturestarterkit.data.remote.API
-import com.karegraf.androidarchitecturestarterkit.data.remote.RepositoryImp
-import com.karegraf.androidarchitecturestarterkit.data.remote.TokenManagerImp
+import com.karegraf.androidarchitecturestarterkit.data.remote.Imp.RepositoryImp
+import com.karegraf.androidarchitecturestarterkit.data.remote.Imp.TokenManagerImp
 import com.karegraf.androidarchitecturestarterkit.data.remote.Interceptor.AuthInterceptor
 import com.karegraf.androidarchitecturestarterkit.domain.repository.MyRepository
 import com.karegraf.androidarchitecturestarterkit.BuildConfig
-import com.karegraf.androidarchitecturestarterkit.data.local.SessionManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,7 +23,8 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 
-object AppModule {
+object
+AppModule {
     @Provides
     @Singleton
     fun provideMyRepository(api: API): MyRepository {

@@ -17,17 +17,19 @@ import androidx.navigation.compose.rememberNavController
 import com.karegraf.androidarchitecturestarterkit.presentation.AppViewModel
 import com.karegraf.androidarchitecturestarterkit.presentation.Screen
 import com.karegraf.androidarchitecturestarterkit.presentation.auth.login.views.LoginScreen
+import com.karegraf.androidarchitecturestarterkit.presentation.permission.PermissionMenuScreen
 import com.karegraf.evrakapp.presentation.navigation.AppBottomBar
-import com.karegraf.evrakapp.presentation.navigation.AppTopBar
 
 @Composable
 fun AppNavGraph(
     viewModel: AppViewModel = hiltViewModel(),
-    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController(),
+    // Yeni: isteğe bağlı startDestination parametresi. Eğer null ise viewModel.startDestination kullanılacak
+    startDestinationOverride: String? = null,
 ) {
-    val startDestination = viewModel.startDestination
+    val startDestination = startDestinationOverride ?: viewModel.startDestination
     //eger user login ise cmpose tarafinda collectedAsState ile takip ediliyor
-    val isLoggedIn =  viewModel.isLoggedIn.collectAsState()
+    val isLoggedIn = viewModel.isLoggedIn.collectAsState()
     val hasToken = isLoggedIn.value
 
     val navBackEntry by navController.currentBackStackEntryAsState()
@@ -45,7 +47,7 @@ fun AppNavGraph(
     }
 
     Scaffold(
-        topBar = { AppTopBar() },
+        topBar = { AppTopBar(navController = navController) },
         bottomBar = {
             if (hasToken) {
                 AppBottomBar(
@@ -68,6 +70,21 @@ fun AppNavGraph(
         ) {
             composable(route = Screen.login.route) {
                 LoginScreen(navController = navController)
+            }
+            composable(route = Screen.permission.route) {
+                PermissionMenuScreen(navController = navController)
+            }
+            composable(route = Screen.cameraPermission.route) {
+                // Kamera izni ekranı
+                com.karegraf.androidarchitecturestarterkit.presentation.permission.CameraPermissionScreen()
+            }
+            composable(route = Screen.locationPermission.route) {
+                // Konum izni ekranı
+                com.karegraf.androidarchitecturestarterkit.presentation.permission.LocationPermissionScreen()
+            }
+            composable(route = Screen.galleryPermission.route) {
+                // Galeri izni ekranı
+                com.karegraf.androidarchitecturestarterkit.presentation.permission.GalleryPermissionScreen()
             }
         }
     }
