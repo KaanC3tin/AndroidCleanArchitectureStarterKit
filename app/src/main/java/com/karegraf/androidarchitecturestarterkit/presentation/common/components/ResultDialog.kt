@@ -75,8 +75,6 @@ fun ResultDialog(
                 colors = ButtonDefaults.textButtonColors(
                     contentColor = style.cancelButtonTextColor,
                     containerColor = style.cancerButtonContainerColor,
-
-
                     ),
                 onClick = {
                     state.onDismiss()
