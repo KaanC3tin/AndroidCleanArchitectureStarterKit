@@ -94,5 +94,6 @@ dependencies {
     implementation("io.coil-kt.coil3:coil-compose:3.2.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("androidx.compose.material:material-icons-extended:1.7.8")
+    implementation("androidx.compose.ui:ui-text-google-fonts:1.6.0")
 
 }

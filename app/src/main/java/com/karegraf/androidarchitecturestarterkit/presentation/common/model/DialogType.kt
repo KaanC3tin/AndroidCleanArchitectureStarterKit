@@ -20,7 +20,7 @@ fun DialogType.toStyle(): DialogStyle {
             confirmButtonTextColor = MaterialTheme.colorScheme.surface,
             confirmButtonContainerColor = MaterialTheme.colorScheme.primary,
             cancelButtonTextColor = MaterialTheme.colorScheme.primary,
-            cancerButtonContainerColor = MaterialTheme.colorScheme.surfaceContainerHigh
+            cancelButtonContainerColor = MaterialTheme.colorScheme.surfaceContainerHigh
 
         )
 
@@ -28,9 +28,9 @@ fun DialogType.toStyle(): DialogStyle {
             icon = Icons.Default.Error,
             iconTint = MaterialTheme.colorScheme.error,
             confirmButtonTextColor = MaterialTheme.colorScheme.onError,
-            confirmButtonContainerColor = MaterialTheme.colorScheme.error,
-            cancelButtonTextColor = MaterialTheme.colorScheme.error,
-            cancerButtonContainerColor = MaterialTheme.colorScheme.surfaceContainerHigh
+            confirmButtonContainerColor = null,
+            cancelButtonTextColor = MaterialTheme.colorScheme.onError,
+            cancelButtonContainerColor = MaterialTheme.colorScheme.error
         )
     }
 }

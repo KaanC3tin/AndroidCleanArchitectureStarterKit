@@ -1,9 +1,16 @@
 package com.karegraf.androidarchitecturestarterkit.presentation.common.components
 
+import android.content.ContentValues
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -12,9 +19,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.End
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.Wallpapers
@@ -23,6 +33,7 @@ import com.karegraf.androidarchitecturestarterkit.presentation.common.model.Dial
 import com.karegraf.androidarchitecturestarterkit.presentation.common.model.DialogType
 import com.karegraf.androidarchitecturestarterkit.presentation.common.model.DialogUiState
 import com.karegraf.androidarchitecturestarterkit.presentation.common.model.toStyle
+import com.karegraf.androidarchitecturestarterkit.presentation.ui.theme.displayFontFamily
 
 @Composable
 fun ResultDialog(
@@ -32,19 +43,42 @@ fun ResultDialog(
 
     AlertDialog(
         icon = {
-            Icon(
-                imageVector = style.icon!!,
-                modifier = Modifier.size(46.dp),
-                contentDescription = state.message,
-                tint = style.iconTint
-            )
+            Box(
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Icon(
+                    imageVector = style.icon!!,
+                    modifier = Modifier
+                        .size(46.dp)
+                        .align(Alignment.Center),
+                    contentDescription = state.message,
+                    tint = style.iconTint,
+
+                    )
+                Icon(
+                    imageVector = Icons.Default.Close,
+                    contentDescription = "Close",
+                    tint = style.iconTint,
+                    modifier = Modifier
+                        .size(26.dp)
+                        .align(Alignment.CenterEnd)
+                )
+            }
         },
         title = {
-            Text(text = state.title)
+            Text(text = state.title,
+                fontStyle = MaterialTheme.typography.headlineLarge.fontStyle,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth()
+    )
         },
         text = {
             Text(
                 text = state.message,
+                fontSize = MaterialTheme.typography.bodyLarge.fontSize,
+                fontWeight = MaterialTheme.typography.bodyLarge.fontWeight,
+                fontStyle = MaterialTheme.typography.bodyLarge.fontStyle,
+                fontFamily = MaterialTheme.typography.bodyLarge.fontFamily,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth()
             )
@@ -53,40 +87,53 @@ fun ResultDialog(
             state.onDismiss()
         },
         confirmButton = {
-            TextButton(
-                modifier = Modifier
-                    .padding(horizontal = 8.dp)
-                    .background(
-                        style.confirmButtonContainerColor,
-                        MaterialTheme.shapes.large
+            style.confirmButtonContainerColor?.let {
+                TextButton(
+                    colors = ButtonDefaults.textButtonColors(
+                        containerColor = it,
+                        contentColor = style.confirmButtonTextColor
                     ),
-                onClick = {
-                    state.onConfirm()
+                    contentPadding = PaddingValues(
+                        horizontal = 16.dp,
+                        vertical = 10.dp
+                    ),
+                    shape = MaterialTheme.shapes.large,
+                    onClick = { state.onConfirm() }
+                ) {
+Text(
+
+                    text = state.confirmLabel,
+                    color = style.confirmButtonTextColor,
+                    fontSize = MaterialTheme.typography.titleMedium.fontSize
+)
+
+
                 }
-            ) {
-                Text(
-                    state.confirmLabel,
-                    color = (style.confirmButtonTextColor)
-                )
             }
         },
         dismissButton = {
             TextButton(
                 colors = ButtonDefaults.textButtonColors(
                     contentColor = style.cancelButtonTextColor,
-                    containerColor = style.cancerButtonContainerColor,
-                    ),
+                    containerColor = style.cancelButtonContainerColor,
+                ),
+                contentPadding = PaddingValues(
+                    horizontal = 16.dp,
+                    vertical = 10.dp
+                ),
+                shape = MaterialTheme.shapes.large,
                 onClick = {
                     state.onDismiss()
                 }
             ) {
                 Text(
-                    state.dismissLabel,
+                    text = state.dismissLabel,
+                    color = style.cancelButtonTextColor,
+                    fontSize = MaterialTheme.typography.titleMedium.fontSize
                 )
             }
         }
     )
-
 }
 
 @Composable
@@ -111,7 +158,7 @@ fun ResultErrorDialogPreview() {
     ResultDialog(
         state = DialogUiState(
             type = DialogType.ERROR,
-            title =  "Evrak Yukleme",
+            title = "Evrak Yukleme",
             message = "Evrak yukleme islemi basarisiz oldu.",
         )
     )

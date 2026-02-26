@@ -1,2 +1,0 @@
-package com.karegraf.androidarchitecturestarterkit.presentation.common.components
-

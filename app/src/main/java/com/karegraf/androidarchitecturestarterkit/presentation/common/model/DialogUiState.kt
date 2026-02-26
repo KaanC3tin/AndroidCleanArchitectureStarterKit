@@ -4,7 +4,7 @@ data class DialogUiState(
     val title: String = "",
     val message: String = "",
     val confirmLabel: String = "Tamam",
-    val dismissLabel: String = "İptal",
+    val dismissLabel: String = "Kapat",
     val onConfirm: () -> Unit = {},
     val onDismiss: () -> Unit = {}
 )
